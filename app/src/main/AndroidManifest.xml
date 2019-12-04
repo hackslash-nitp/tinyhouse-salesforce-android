@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.tinyhouse.salesforce" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="in.tinyhouse.salesforce">
 
     <application
         android:allowBackup="true"
@@ -8,8 +9,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".Settings.SettingsActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Profile.ProfileActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Onboarding.LoginActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Inventory.InventoryActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Home.HomeActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Billing.BillingActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Splash.SplashActivity"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

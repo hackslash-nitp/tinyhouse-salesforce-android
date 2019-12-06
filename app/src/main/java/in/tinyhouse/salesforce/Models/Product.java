@@ -27,10 +27,10 @@ public class Product {
     }
 
     //Setter and getter functions for barcodeData
-    private void setBarcodeData(String barcodeOfProduct){
+    public void setBarcodeData(String barcodeOfProduct){
         this.barcodeData = barcodeOfProduct;
     }
-    private String getBarcodeData(){
+    public String getBarcodeData(){
         return barcodeData;
     }
 

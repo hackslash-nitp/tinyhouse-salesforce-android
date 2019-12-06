@@ -7,4 +7,7 @@ public class Product {
     private String barcodeData;
     private String price;
     private String timeAdded;
+
+    public  Product () {}
+
 }

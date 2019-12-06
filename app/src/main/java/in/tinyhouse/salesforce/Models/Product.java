@@ -34,6 +34,12 @@ public class Product {
         return barcodeData;
     }
 
-
+    //Setter and getter functions for price
+    public void setPrice(String productPrice){
+        this.price = productPrice;
+    }
+    public String getPrice(){
+        return price;
+    }
 
 }

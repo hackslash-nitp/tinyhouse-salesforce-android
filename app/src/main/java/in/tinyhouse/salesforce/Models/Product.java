@@ -10,4 +10,13 @@ public class Product {
 
     public  Product () {}
 
+    //Setter and getter functions for id
+    public void setId(String Id){
+        this.id = Id;
+    }
+    public String getId(){
+        return id;
+    }
+
+
 }

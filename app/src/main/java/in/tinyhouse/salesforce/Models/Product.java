@@ -42,4 +42,12 @@ public class Product {
         return price;
     }
 
+    //Setter and getter functions for timeAdded
+    public void setTimeAdded(String time){
+        this.timeAdded = time;
+    }
+    public String getTimeAdded(){
+        return timeAdded;
+    }
+
 }

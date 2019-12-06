@@ -18,5 +18,13 @@ public class Product {
         return id;
     }
 
+    //Setter and getter functions for productName
+    public void setProductName(String nameOfProduct){
+        this.productName = nameOfProduct;
+    }
+    public String getProductName(){
+        return productName;
+    }
+
 
 }

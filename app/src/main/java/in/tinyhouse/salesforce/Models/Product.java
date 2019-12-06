@@ -26,5 +26,14 @@ public class Product {
         return productName;
     }
 
+    //Setter and getter functions for barcodeData
+    private void setBarcodeData(String barcodeOfProduct){
+        this.barcodeData = barcodeOfProduct;
+    }
+    private String getBarcodeData(){
+        return barcodeData;
+    }
+
+
 
 }

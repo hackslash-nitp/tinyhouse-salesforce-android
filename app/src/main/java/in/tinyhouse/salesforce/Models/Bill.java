@@ -11,15 +11,16 @@ public class Bill {
     private String customerId;
     private String customerName;
     private String customerPhone;
-    private HashMap<String,Integer> productList;
+    private HashMap<String, Integer> productList;
     private String paidAmount;
     private String returnedAmount;
     private String timeStamp;
 
-    public Bill() {}
+    public Bill() {
+    }
 
     //Getter and Setter functions for id
-    public String getId(){
+    public String getId() {
         return id;
     }
 

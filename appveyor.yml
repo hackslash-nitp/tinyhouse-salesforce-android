@@ -9,3 +9,15 @@ build_script:
   - gradlew.bat assemble
 test_script:
   - gradlew.bat test
+deploy:
+  release: salesforce-v$(appveyor_build_version)
+  description: 'CI generated release'
+  provider: GitHub
+  auth_token:
+    secure: e5ed4d8c50553b02a877607d5d7018af0c30cef0
+  artifact: /.*\.nupkg/
+  draft: false
+  prerelease: false
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true

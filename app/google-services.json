@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "873276707848",
+    "firebase_url": "https://salesforce-5dbb3.firebaseio.com",
+    "project_id": "salesforce-5dbb3",
+    "storage_bucket": "salesforce-5dbb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873276707848:android:7abc5a842c95952bf9adbd",
+        "android_client_info": {
+          "package_name": "in.tinyhouse.salesforce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873276707848-3u62ca28j38dgt4ibrqgdoorr8m4fo23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.tinyhouse.salesforce",
+            "certificate_hash": "fe40299dac0449483c13a6a6eb97adada75fc49c"
+          }
+        },
+        {
+          "client_id": "873276707848-gtmkcelsmn7g3n2pduhmdm39i6k3774u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK_h7lBpHyEKPvbK2Jj6ic3mgyAGtcnD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873276707848-gtmkcelsmn7g3n2pduhmdm39i6k3774u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

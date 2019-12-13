@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E74672"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<Toolbar android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:title="@string/signup"
+    android:titleTextColor="#E74672"
+    android:titleMarginStart="40dp"
+    android:background="#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:background="#E74672"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#E74672">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+
+            android:textSize="40dp"
+            android:textStyle="bold|normal" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="90dp"
+
+            android:paddingLeft="20dp"
+            android:background="@drawable/edit_text_shape"
+            android:fontFamily="@font/ubuntu"
+            android:hint="@string/signup_name"
+            android:inputType="textPersonName"
+            android:textColor="#E74672"
+            android:textSize="16dp" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+
+            android:paddingLeft="20dp"
+            android:background="@drawable/edit_text_shape"
+            android:fontFamily="@font/ubuntu"
+            android:hint="@string/signup_phone"
+            android:inputType="textPersonName"
+            android:textColor="#E74672"
+            android:textSize="16dp" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+
+            android:paddingLeft="20dp"
+            android:background="@drawable/edit_text_shape"
+            android:fontFamily="@font/ubuntu"
+            android:hint="@string/signup_email"
+            android:inputType="textPersonName"
+            android:textColor="#E74672"
+            android:textSize="16dp" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+
+            android:background="@drawable/edit_text_shape"
+            android:paddingLeft="20dp"
+            android:fontFamily="@font/ubuntu"
+            android:hint="@string/signup_password"
+            android:inputType="textPersonName"
+            android:textColor="#E74672"
+            android:textSize="16dp" />
+
+        <Button
+            android:layout_width="168dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+
+            android:background="@drawable/edit_text_shape"
+            android:fontFamily="@font/ubuntu"
+            android:text="@string/signup_button"
+            android:textColor="#E74672" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="70dp"
+            android:text="@string/signup_textbottom"
+
+            android:textColor="#FFFFFF"
+            android:textSize="12dp" />
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

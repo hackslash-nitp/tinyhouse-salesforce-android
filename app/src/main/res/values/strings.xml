@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Salesforce</string>
+    <string name="app_name">salesforce</string>
+    <string name="app_upper_name">tinyhouse</string>
+    <string name="signup">Signup</string>
+    <string name="signup_name">Name</string>
+    <string name="signup_phone">Phone</string>
+    <string name="signup_email">Email</string>
+    <string name="signup_password">Password</string>
+    <string name="signup_button">CREATE ACCOUNT</string>
+    <string name="signup_textbottom">TAP HERE TO SIGN IN</string>
 </resources>

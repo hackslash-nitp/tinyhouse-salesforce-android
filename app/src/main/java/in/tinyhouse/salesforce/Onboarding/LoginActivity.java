@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-
 import in.tinyhouse.salesforce.Home.HomeActivity;
 import in.tinyhouse.salesforce.R;
 
@@ -67,10 +66,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     //Method to assign all the varibles with their respective Ids
     public void assignVariables(){
-        mEmail = (EditText) findViewById(R.id.user_email);             //Initialize it adding its id that is in the xml layout file
-        mPassword = (EditText) findViewById(R.id.user_password);         //Initialize it adding its id that is in the xml layout file
-        btnLogin = (Button) findViewById(R.id.btn_login);            //Initialize it adding its id that is in the xml layout file
-        btnSignUp = (TextView) findViewById(R.id.signup_textView);         //Initialize it adding its id that is in the xml layout file
+        mEmail = findViewById(R.id.email);             //Initialize it adding its id that is in the xml layout file
+        mPassword = findViewById(R.id.password);         //Initialize it adding its id that is in the xml layout file
+        btnLogin = findViewById(R.id.btn_login);            //Initialize it adding its id that is in the xml layout file
+        btnSignUp = findViewById(R.id.tap_sign);         //Initialize it adding its id that is in the xml layout file
     }
 
 
@@ -81,10 +80,7 @@ public class LoginActivity extends AppCompatActivity {
      * @return returns true if user has filled both the fields else returns false
      */
     public boolean checkEntries(String email, String password){
-        if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password)){
-            return false;
-        }
-        else{ return  true;}
+        return !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password);
     }
 
     /**Method to start the login process by verifying the details from the firebase

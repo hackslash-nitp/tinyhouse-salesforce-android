@@ -39,73 +39,73 @@
                 android:textStyle="bold|normal" />
 
             <EditText
+                android:id="@+id/user_name"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="90dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_name"
-                android:inputType="textPersonName"
+                android:inputType="textCapWords"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/user_phone"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="40dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_phone"
-                android:inputType="textPersonName"
+                android:inputType="textPhonetic"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/user_email"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="40dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_email"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/user_password"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="40dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_password"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
 
             <Button
+                android:id="@+id/btn_signup"
                 android:layout_width="168dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="60dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:text="@string/signup_button"
                 android:textColor="#E74672" />
 
             <TextView
+                android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginTop="70dp"
                 android:text="@string/signup_textbottom"
-
                 android:textColor="#FFFFFF"
                 android:textSize="12dp" />
         </LinearLayout>

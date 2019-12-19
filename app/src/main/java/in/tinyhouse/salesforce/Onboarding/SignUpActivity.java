@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import in.tinyhouse.salesforce.Home.HomeActivity;
+import in.tinyhouse.salesforce.Models.User;
+import in.tinyhouse.salesforce.Profile.UserManager;
 import in.tinyhouse.salesforce.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -55,6 +57,18 @@ public class SignUpActivity extends AppCompatActivity {
                 userEmail = mEmail.getText().toString();
                 userPassword = mPassword.getText().toString();
                 signUpUser(userName, userPhone, userEmail, userPassword);
+                //Creating a new user object
+                User user = new User();
+                //Setting the user details in the user object
+                user.setName(userName);
+                user.setPhoneNumber(userPhone);
+                user.setEmail(userEmail);
+                UserManager userManager = new UserManager();
+                userManager.createUser(user);
+
+
+
+
             }
         });
         //click listener for login textView

@@ -57,16 +57,6 @@ public class SignUpActivity extends AppCompatActivity {
                 userEmail = mEmail.getText().toString();
                 userPassword = mPassword.getText().toString();
                 signUpUser(userName, userPhone, userEmail, userPassword);
-                //Creating a new user object
-                User user = new User();
-                //Setting the user details in the user object
-                user.setName(userName);
-                user.setPhoneNumber(userPhone);
-                user.setEmail(userEmail);
-                UserManager userManager = new UserManager();
-                userManager.createUser(user);
-
-
 
 
             }
@@ -76,7 +66,9 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Sends user to login activity
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
     }
@@ -125,6 +117,27 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(SignUpActivity.this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
+                        //Creating a new user object
+                        User user = new User();
+                        //Setting the user details in the user object
+                        user.setName(userName);
+                        user.setPhoneNumber(userPhone);
+                        user.setEmail(userEmail);
+                        //Creating a user manager object
+                        UserManager userManager = new UserManager();
+                        //Using the user manager object to save
+                        //the deatils of the user in firebase database
+                        userManager.createUser(user).setOnCompleteListener(new UserManager.OnCompleteListener() {
+
+                            @Override
+                            public void onUserCreated() {}
+
+                            @Override
+                            public void onUserFetched(User user) {}
+
+                            @Override
+                            public void onOperationFailed() {}
+                        });
                         //If signup is successful sending user to home activity
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     } else {

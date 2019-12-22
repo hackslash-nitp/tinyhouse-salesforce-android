@@ -1,11 +1,13 @@
 package in.tinyhouse.salesforce.Onboarding;
 
-import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.text.TextUtils;
+import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,11 +23,10 @@ import in.tinyhouse.salesforce.Home.HomeActivity;
 import in.tinyhouse.salesforce.R;
 
 public class LoginActivity extends AppCompatActivity {
-
-    //String variables for user email and password
-    private String userEmail, userPassword;
+    private EditText email;
     //Declaration of the EditText variables that takes user email and password
-    private EditText mEmail, mPassword;
+    private EditText mEmail;
+    private EditText mPassword;
     //Login button to log in the user if the details are correctn and user exists
     private Button btnLogin;
     //Signup textView to create a new user account
@@ -36,7 +37,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        assignVariables();
+
+        TextView tap_sign = findViewById(R.id.tap_sign);
+        int[] attrs = new int[]{R.attr.selectableItemBackground};
+        TypedArray typedArray = getTheme().obtainStyledAttributes(attrs);
+        int backgroundResource = typedArray.getResourceId(0, 0);
+        tap_sign.setBackgroundResource(backgroundResource);
+
+        email = findViewById(R.id.email);
+       assignVariables();
         setup();
 
 
@@ -46,6 +55,9 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //String variables for user email and password
+                 String userEmail;
+                 String userPassword;
                 //As the login but is clicked assigning the entered email
                 //and  password to String from the EditText field and starting
                 //the login method
@@ -68,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     public void assignVariables(){
         mEmail = findViewById(R.id.email);             //Initialize it adding its id that is in the xml layout file
         mPassword = findViewById(R.id.password);         //Initialize it adding its id that is in the xml layout file
-        btnLogin = findViewById(R.id.btn_login);            //Initialize it adding its id that is in the xml layout file
+        btnLogin = findViewById(R.id.button1);            //Initialize it adding its id that is in the xml layout file
         btnSignUp = findViewById(R.id.tap_sign);         //Initialize it adding its id that is in the xml layout file
     }
 
@@ -92,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginUser(String email, String password){
         //Checking the status of the entries by the user
-        boolean status = checkEntries(email, password);
+        boolean status = validateE();
         //only if the status is true then starting the login process
         if(status){
             fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -112,4 +124,20 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+// function  to check status of inputted email
+    private boolean validateE() {
+        String emailInput = email.getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            email.setError("Field can't be empty");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            email.setError("Please enter a valid email");
+            return false;
+        } else {
+            email.setError(null);
+            return true;
+        }
+    }
+
 }

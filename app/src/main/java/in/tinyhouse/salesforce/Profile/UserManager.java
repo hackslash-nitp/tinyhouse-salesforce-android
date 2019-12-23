@@ -55,7 +55,7 @@ public class UserManager {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                //If the firebase database operation got cancelled due to some reason
             }
         });
         return this;

@@ -39,27 +39,27 @@
                 android:textStyle="bold|normal" />
 
             <EditText
+                android:id="@+id/user_name"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="90dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_name"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/user_phone"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="40dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_phone"
-                android:inputType="textPersonName"
+                android:inputType="phone"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
@@ -69,24 +69,23 @@
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="40dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_email"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/user_password"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="40dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:hint="@string/signup_password"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
                 android:textSize="16dp" />
@@ -96,7 +95,6 @@
                 android:layout_width="168dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="60dp"
-
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/ubuntu"
                 android:text="@string/signup_button"

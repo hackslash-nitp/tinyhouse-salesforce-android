@@ -6,6 +6,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.text.TextUtils;
 import android.content.Intent;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -32,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     //Signup textView to create a new user account
     private TextView btnSignUp;
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +96,17 @@ public class LoginActivity extends AppCompatActivity {
      * @return returns true if user has filled both the fields else returns false
      */
     public boolean checkEntries(String email, String password){
-        return !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password);
+
+        if("".equals(email)) {
+            Toast.makeText(LoginActivity.this, "NAME cannot be empty", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if("".equals(password)){
+            Toast.makeText(LoginActivity.this,"PASSWORD cannot be empty",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else
+            return true;
     }
 
     /**Method to start the login process by verifying the details from the firebase
@@ -117,7 +131,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else{
                         //Message to the user if the login fails with reason
-                        Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT);
+                       // Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT);
+                         Snackbar.make((RelativeLayout)findViewById(R.id.root_loginlayout),"Error "+task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
+
                     }
                 }
             });

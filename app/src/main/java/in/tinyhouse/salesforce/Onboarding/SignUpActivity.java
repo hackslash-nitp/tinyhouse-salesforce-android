@@ -1,5 +1,9 @@
 package in.tinyhouse.salesforce.Onboarding;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +17,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -185,4 +191,36 @@ public class SignUpActivity extends AppCompatActivity {
 
         }
     }
+
+    /**Method to check whether the user has entered email and password or not
+     *
+     * @param email User email
+     * @param password User password
+     * @return returns true if user has filled both the fields else returns false
+     */
+    public boolean checkEntries(String name,String phone, String email, String password){
+
+        if("".equals(name)){
+            Toast.makeText(SignUpActivity.this,"NAME cannot be empty",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if("".equals(phone)){
+            Toast.makeText(SignUpActivity.this,"PHONE cannot be empty",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if("".equals(email)) {
+            Toast.makeText(SignUpActivity.this, "EMAIL cannot be empty", Toast.LENGTH_SHORT).show();
+            return false;  
+        }
+        else if("".equals(password)){
+            Toast.makeText(SignUpActivity.this,"PASSWORD cannot be empty",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else
+            return true;
+    }
+        public void failedSignUpSnackbarMessage(){
+            Snackbar.make((RelativeLayout)findViewById(R.id.root_signuplayout),"Error "+task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
+        }
+
 }

@@ -1,12 +1,6 @@
 package in.tinyhouse.salesforce.Onboarding;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -14,14 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -59,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     //Method that contain click listeners for the buttons
-    public void setup(){
+    public void setup() {
         //click listener for signup button
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,13 +75,11 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Sends user to login activity
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
-      
-      
+
+
         int[] attrs = new int[]{R.attr.selectableItemBackground};
         TypedArray typedArray = getTheme().obtainStyledAttributes(attrs);
         int backgroundResource = typedArray.getResourceId(0, 0);
@@ -95,7 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     //Method to assign all the variables with their respective Ids
-    public void assignVariables(){
+    public void assignVariables() {
         mName = findViewById(R.id.user_name);
         mPhone = findViewById(R.id.user_phone);
         mEmail = findViewById(R.id.signupemail);
@@ -104,45 +96,33 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnsignup);
     }
 
-    /**Method to check if the user has entered all the credentials
-     * or not
-     * @param name name of the user
-     * @param phone phone no. of the user
-     * @param email email address of the user
-     * @param password password of the user
-     * @return returns true if all the credentials are  entered by the user
-     */
 
-    public boolean checkEntries(String name, String phone, String email, String password){
-        return !TextUtils.isEmpty(name) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(email)
-                && !TextUtils.isEmpty(password);
-    }
-
-    /**Method to start the sign up process
+    /**
+     * Method to start the sign up process
      * Takes the user to the home activity if the signup is successful
      * else gives the reason for failure
      *
-     * @param name name of the user
-     * @param phone phone phone no. of the user
-     * @param email email address of the user
+     * @param name     name of the user
+     * @param phone    phone phone no. of the user
+     * @param email    email address of the user
      * @param password password of the user
      */
 
-    public void signUpUser(String name, String phone, String email, String password){
+    public void signUpUser(String name, final String phone, String email, String password) {
         //Checking if the user has entered the credentials or not
         boolean status = validateEmail() && checkEntries(name, phone, email, password);
         //Starting the signup activity if and only if user has entered all the credentials
-        if(status){
+        if (status) {
             fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Toast.makeText(SignUpActivity.this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
                         //Creating a new user object
                         User user = new User();
                         //Setting the user details in the user object
                         user.setName(userName);
-                        user.setPhoneNumber(userPhone);
+                        user.setPhoneNumber(phone);
                         user.setEmail(userEmail);
                         //Creating a user manager object
                         UserManager userManager = new UserManager();
@@ -162,8 +142,9 @@ public class SignUpActivity extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onOperationFailed() {
+                            public void onOperationFailed(String message) {
                                 //if the firebase database operation gets failed
+                                failedSignUpSnackbarMessage(message);
                             }
                         });
 
@@ -174,7 +155,7 @@ public class SignUpActivity extends AppCompatActivity {
             });
         }
     }
-    }
+
 
     private boolean validateEmail() {
         String emailInput = signupemail.getText().toString().trim();
@@ -192,35 +173,38 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    /**Method to check whether the user has entered email and password or not
+    /**
+     * Method to check if the user has entered all the credentials
+     * or not
      *
-     * @param email User email
-     * @param password User password
-     * @return returns true if user has filled both the fields else returns false
+     * @param name     name of the user
+     * @param phone    phone no. of the user
+     * @param email    email address of the user
+     * @param password password of the user
+     * @return returns true if all the credentials are  entered by the user
      */
-    public boolean checkEntries(String name,String phone, String email, String password){
 
-        if("".equals(name)){
-            Toast.makeText(SignUpActivity.this,"NAME cannot be empty",Toast.LENGTH_SHORT).show();
+    public boolean checkEntries(String name, String phone, String email, String password) {
+
+        if ("".equals(name)) {
+            Toast.makeText(SignUpActivity.this, "NAME cannot be empty", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if ("".equals(phone)) {
+            Toast.makeText(SignUpActivity.this, "PHONE cannot be empty", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if("".equals(phone)){
-            Toast.makeText(SignUpActivity.this,"PHONE cannot be empty",Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if("".equals(email)) {
+        if ("".equals(email)) {
             Toast.makeText(SignUpActivity.this, "EMAIL cannot be empty", Toast.LENGTH_SHORT).show();
-            return false;  
-        }
-        else if("".equals(password)){
-            Toast.makeText(SignUpActivity.this,"PASSWORD cannot be empty",Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else
+        } else if ("".equals(password)) {
+            Toast.makeText(SignUpActivity.this, "PASSWORD cannot be empty", Toast.LENGTH_SHORT).show();
+            return false;
+        } else
             return true;
     }
-        public void failedSignUpSnackbarMessage(){
-            Snackbar.make((RelativeLayout)findViewById(R.id.root_signuplayout),"Error "+task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
-        }
+
+    public void failedSignUpSnackbarMessage(String message) {
+        Snackbar.make(findViewById(R.id.root_signuplayout), "Error " + message, Snackbar.LENGTH_SHORT).show();
+    }
 
 }

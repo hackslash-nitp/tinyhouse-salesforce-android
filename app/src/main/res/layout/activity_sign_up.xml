@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_signuplayout"
-    android:background="#E74672">
+    android:background="@drawable/background">
 
     <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -14,13 +14,13 @@
         android:titleMarginStart="40dp"
         android:titleTextColor="#E74672" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:background="#E74672">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#E74672"
@@ -32,10 +32,11 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="60dp"
+                android:background="#00FFFFFF"
                 android:fontFamily="@font/ubuntu_medium"
                 android:text="@string/app_name"
-                android:textColor="#FFFFFF"
 
+                android:textColor="#FFFFFF"
                 android:textSize="40dp"
                 android:textStyle="bold|normal" />
 

@@ -3,7 +3,7 @@ package in.tinyhouse.salesforce.Profile;
 
 import androidx.annotation.NonNull;
 
-
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +36,13 @@ public class UserManager {
             public void onSuccess(Void aVoid) {
                 listener.onUserCreated();
             }
-        });
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        listener.onOperationFailed(e.getMessage());
+                    }
+                });
         return this;
     }
 
@@ -63,9 +69,11 @@ public class UserManager {
 
 
     public interface OnCompleteListener{
-        public void onUserCreated();
-        public void onUserFetched(User user);
-        public void onOperationFailed();
+        void onUserCreated();
+
+        void onUserFetched(User user);
+
+        void onOperationFailed(String message);
 
     }
 

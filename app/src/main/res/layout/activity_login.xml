@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E74672"
+    android:background="@drawable/background"
     android:id="@+id/root_loginlayout"
     tools:context=".Onboarding.LoginActivity">
 <androidx.appcompat.widget.Toolbar
@@ -22,6 +22,7 @@
         android:textColor="#E74672"
         android:textSize="18dp" />
 </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/salesforce"
         android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
         android:layout_below="@id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:background="#E74672"
+        android:background="#00E74672"
         android:fontFamily="@font/ubuntu_medium"
         android:text="salesforce"
         android:textColor="#FFFFFF"

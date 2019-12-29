@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.content.res.TypedArray;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

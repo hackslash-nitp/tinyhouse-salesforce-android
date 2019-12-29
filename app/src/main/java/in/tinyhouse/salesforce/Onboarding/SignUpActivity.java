@@ -1,14 +1,16 @@
 package in.tinyhouse.salesforce.Onboarding;
 
+
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +27,6 @@ import in.tinyhouse.salesforce.Profile.UserManager;
 import in.tinyhouse.salesforce.R;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText signupemail;
 
     //String variables for user name, email and password
     private String userName;
@@ -107,8 +108,8 @@ public class SignUpActivity extends AppCompatActivity {
      * @param email    email address of the user
      * @param password password of the user
      */
-
-    public void signUpUser(String name, final String phone, String email, String password) {
+  
+    public void signUpUser(final String name, final String phone, final String email, final String password){
         //Checking if the user has entered the credentials or not
         boolean status = validateEmail() && checkEntries(name, phone, email, password);
         //Starting the signup activity if and only if user has entered all the credentials
@@ -121,9 +122,9 @@ public class SignUpActivity extends AppCompatActivity {
                         //Creating a new user object
                         User user = new User();
                         //Setting the user details in the user object
-                        user.setName(userName);
+                        user.setName(name);
                         user.setPhoneNumber(phone);
-                        user.setEmail(userEmail);
+                        user.setEmail(email);
                         //Creating a user manager object
                         UserManager userManager = new UserManager();
                         //Using the user manager object to save
@@ -149,30 +150,28 @@ public class SignUpActivity extends AppCompatActivity {
                         });
 
                     } else {
-                        Toast.makeText(SignUpActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Snackbar.make((RelativeLayout)findViewById(R.id.root_signuplayout),"Error "+ task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
                     }
                 }
             });
         }
     }
 
-
     private boolean validateEmail() {
-        String emailInput = signupemail.getText().toString().trim();
+        String emailInput = mEmail.getText().toString().trim();
 
         if (emailInput.isEmpty()) {
-            signupemail.setError("Field can't be empty");
+            mEmail.setError("Field can't be empty");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            signupemail.setError("Please enter a valid email");
+            mEmail.setError("Please enter a valid email");
             return false;
         } else {
-            signupemail.setError(null);
+            mEmail.setError(null);
             return true;
 
         }
     }
-
     /**
      * Method to check if the user has entered all the credentials
      * or not

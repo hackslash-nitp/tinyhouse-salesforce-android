@@ -203,4 +203,9 @@ public class SignUpActivity extends AppCompatActivity {
         } else
             return true;
     }
+
+    public void failedSignUpSnackbarMessage(String message) {
+        Snackbar.make(findViewById(R.id.root_signuplayout), "Error " + message, Snackbar.LENGTH_SHORT).show();
+    }
+
 }

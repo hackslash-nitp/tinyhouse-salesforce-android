@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         mLayout.addPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
             @Override
             public void onPanelSlide(View panel, float slideOffset) {
-
+                //Function for controls during panel slide
             }
 
             @Override

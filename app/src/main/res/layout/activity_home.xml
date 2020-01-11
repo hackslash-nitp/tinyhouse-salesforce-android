@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/slideup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="bottom"
+    app:umanoDragView="@id/draggable"
+    app:umanoFadeColor="@color/zxing_transparent"
+    app:umanoPanelHeight="115dp"
+    app:umanoScrollableView="@id/scrollable"
     tools:context=".Home.HomeActivity">
 
     <RelativeLayout
@@ -30,20 +37,21 @@
             android:layout_marginTop="161dp"
             android:background="@drawable/home_screen_shape">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/segoeprb"
-                android:text="s"
-                android:textColor="#FFFFFF"
-                android:textSize="80dp" />
 
             <RelativeLayout
                 android:layout_width="156dp"
                 android:layout_height="155dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/home_screen_shape_2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/segoeprb"
+                    android:text="s"
+                    android:textColor="#FFFFFF"
+                    android:textSize="80dp" />
 
                 <RelativeLayout
                     android:layout_width="134dp"
@@ -67,24 +75,31 @@
             android:textColor="#FFFFFF"
             android:textSize="24dp"
             tools:text="Welcome Rowan!" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/user_name"
-            tools:text="December 26th 22:17"
-            android:textSize="16dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="6dp"
             android:fontFamily="@font/roboto_regular"
             android:textColor="#FFFFFF"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="6dp"/>
+            android:textSize="16dp"
+            tools:text="December 26th 22:17" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/slideup"
+        android:id="@+id/draggable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        />
+        android:layout_marginTop="82dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/scrollable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>

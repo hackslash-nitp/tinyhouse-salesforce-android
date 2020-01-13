@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -21,6 +23,8 @@ import in.tinyhouse.salesforce.Billing.BillingActivity;
 import in.tinyhouse.salesforce.R;
 
 public class HomeActivity extends AppCompatActivity {
+    private SlidingUpPanelLayout mLayout;
+    private TextView mText;
 
     //private variable for "salesforce" TextView
     private TextView mSalesforce;

@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                finish();
             }
         });
 
@@ -128,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this,"User Logged In Successfully",Toast.LENGTH_SHORT);
                         //Creating intent to send user from Login Activity to Home Activity for successful login
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        
                     }
                     else{
                         //Message to the user if the login fails with reason

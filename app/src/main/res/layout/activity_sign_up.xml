@@ -19,12 +19,18 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:background="#E74672">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#E74672">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#E74672"
             android:gravity="center"
+            android:id="@+id/linear_layout_signup"
             android:orientation="vertical">
 
             <TextView
@@ -101,6 +107,7 @@
                 android:fontFamily="@font/ubuntu"
                 android:text="@string/signup_button"
                 android:textColor="#E74672" />
+        </LinearLayout>
 
             <TextView
                 android:id="@+id/tapsignup"
@@ -108,9 +115,13 @@
                 android:layout_height="20dp"
                 android:layout_marginTop="70dp"
                 android:text="@string/signup_textbottom"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/linear_layout_signup"
+                android:layout_centerHorizontal="true"
                 android:clickable="true"
                 android:textColor="#FFFFFF"
                 android:textSize="12dp" />
-        </LinearLayout>
+
+        </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

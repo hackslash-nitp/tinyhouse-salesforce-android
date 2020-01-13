@@ -15,6 +15,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
+
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -77,6 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Sends user to login activity
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                finish();
             }
         });
 
@@ -194,7 +199,9 @@ public class SignUpActivity extends AppCompatActivity {
         }
         if ("".equals(email)) {
             Toast.makeText(SignUpActivity.this, "EMAIL cannot be empty", Toast.LENGTH_SHORT).show();
+
             return false;
+        
         } else if ("".equals(password)) {
             Toast.makeText(SignUpActivity.this, "PASSWORD cannot be empty", Toast.LENGTH_SHORT).show();
             return false;
@@ -202,8 +209,10 @@ public class SignUpActivity extends AppCompatActivity {
             return true;
     }
 
+
     public void failedSignUpSnackbarMessage(String message) {
         Snackbar.make(findViewById(R.id.root_signuplayout), "Error " + message, Snackbar.LENGTH_SHORT).show();
     }
+
 
 }

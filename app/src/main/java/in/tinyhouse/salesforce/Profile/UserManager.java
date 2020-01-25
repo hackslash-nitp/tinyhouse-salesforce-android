@@ -31,6 +31,7 @@ public class UserManager {
      * @param user User object
      */
     public UserManager createUser(User user){
+        user.setId(reff.push().getKey());
         reff.child(user.getId()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

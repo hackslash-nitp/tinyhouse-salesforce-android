@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +32,7 @@ public class UserManager {
      * @param user User object
      */
     public UserManager createUser(User user){
-        user.setId(reff.push().getKey());
+        user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
         reff.child(user.getId()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

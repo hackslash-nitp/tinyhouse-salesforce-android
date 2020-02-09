@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
             //method for what layout to show on onPanelSlide
             @Override
             public void onPanelSlide(View panel, float slideOffset) {
-
+                //Function for controls during panel slide
             }
             //method for what to do when state of Panel is changed that is either expanded or compressed
             @Override

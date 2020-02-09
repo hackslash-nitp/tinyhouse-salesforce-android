@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+
+            android:layout_height="120dp"
+            android:layout_width="75dp"
+            android:id="@+id/profile_image"
+
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/splash_screen_image"
+            android:scaleType="centerCrop"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/Transaction_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="Transaction"
+                android:layout_marginTop="4dp"
+                android:textColor="#F65984"
+                android:layout_marginBottom="4dp"
+                android:textSize="8dp"
+                android:textStyle="bold|normal" />
+            <TextView
+                android:id="@+id/Bill_Number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="Bill No. 115789652"
+                android:layout_marginBottom="4dp"
+                android:textColor="#707070"
+                android:textSize="14dp"
+                android:textStyle="bold|normal" />
+            <TextView
+                android:id="@+id/Bill_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="Billed at 10:33 PM 26th December"
+                android:layout_marginBottom="16dp"
+                android:textColor="#B7B7B7"
+                android:textSize="13dp"
+                android:textStyle="bold|normal" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/customer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="#00FFFFFF"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:text="Customer Name"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="#B7B7B7"
+                        android:textSize="8dp"
+                        android:textStyle="bold|normal" />
+                    <TextView
+                        android:id="@+id/customer_Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="#00FFFFFF"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:text="Mr. Sanders"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="#707070"
+                        android:textSize="8dp"
+                        android:textStyle="bold|normal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="110dp">
+                    <TextView
+                        android:id="@+id/Total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="#00FFFFFF"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:text="Total Amount"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="#B7B7B7"
+                        android:textSize="8dp"
+                        android:textStyle="bold|normal" />
+                    <TextView
+                        android:id="@+id/total_Amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="#00FFFFFF"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:text="Rs 549"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="#707070"
+                        android:textSize="8dp"
+                        android:textStyle="bold|normal" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/labelclick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="View Bill"
+                android:layout_marginTop="5dp"
+                android:textColor="#5AA5D9"
+                android:textSize="10dp"
+                android:textStyle="bold|normal"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+

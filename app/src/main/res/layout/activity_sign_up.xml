@@ -83,7 +83,8 @@
                 android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
                 android:textColor="#E74672"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:paddingRight="4dp"/>
 
             <EditText
                 android:id="@+id/user_password"
@@ -120,8 +121,9 @@
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
                 android:textColor="#FFFFFF"
-                android:textSize="12dp" />
-
-        </RelativeLayout>
+                android:textSize="12dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
     </ScrollView>
 </RelativeLayout>

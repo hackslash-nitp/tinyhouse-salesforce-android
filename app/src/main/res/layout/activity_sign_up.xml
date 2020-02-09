@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_signuplayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/root_signuplayout"
     android:background="@drawable/background">
 
     <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,18 +19,18 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:background="#E74672">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:background="#E74672">
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:gravity="center"-->
+        <!--            android:background="#E74672">-->
 
         <LinearLayout
+            android:id="@+id/linear_layout_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#E74672"
             android:gravity="center"
-            android:id="@+id/linear_layout_signup"
             android:orientation="vertical">
 
             <TextView
@@ -82,9 +82,9 @@
                 android:hint="@string/signup_email"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="20dp"
+                android:paddingRight="4dp"
                 android:textColor="#E74672"
-                android:textSize="16dp"
-                android:paddingRight="4dp"/>
+                android:textSize="16dp" />
 
             <EditText
                 android:id="@+id/user_password"
@@ -110,20 +110,20 @@
                 android:textColor="#E74672" />
         </LinearLayout>
 
-            <TextView
-                android:id="@+id/tapsignup"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="70dp"
-                android:text="@string/signup_textbottom"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@id/linear_layout_signup"
-                android:layout_centerHorizontal="true"
-                android:clickable="true"
-                android:textColor="#FFFFFF"
-                android:textSize="12dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"/>
+        <TextView
+            android:id="@+id/tapsignup"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/linear_layout_signup"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:clickable="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="@string/signup_textbottom"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp" />
     </ScrollView>
 </RelativeLayout>

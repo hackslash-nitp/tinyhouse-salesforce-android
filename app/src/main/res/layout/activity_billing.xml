@@ -1,8 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Billing.BillingActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="21dp"
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="23dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salesforce"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="#F0527E"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="#5AA5D9"
+            android:layout_marginLeft="261dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bill details"
+        android:fontFamily="@font/roboto_medium"
+        android:layout_marginTop="19dp"
+        android:textSize="18dp"
+        android:textColor="#343434"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From Name"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12dp"
+        android:fontFamily="@font/roboto_bold"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bill_activity_back"
+        android:layout_marginTop="30dp"
+        >
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11.02.2020"
+            android:textSize="12dp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="14dp"
+            android:fontFamily="@font/roboto_bold"/>
+        <ImageView
+            android:layout_width="53dp"
+            android:layout_height="46dp"
+            android:src="@drawable/bill_img"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="14dp"
+            android:layout_alignParentRight="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Store name"
+            android:textSize="16dp"
+            android:textColor="#343434"
+            android:layout_below="@id/date"
+            android:layout_marginTop="9dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/roboto_medium"/>
+        <ImageView
+            android:id="@+id/qr_code_img"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:src="@drawable/qr_temp"
+            android:layout_below="@id/date"
+            android:layout_marginTop="42dp"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/bill_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bill no. 123456"
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@id/qr_code_img"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In Total"
+            android:textSize="12dp"
+            android:layout_below="@id/bill_num"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="14dp"
+            android:fontFamily="@font/roboto_medium"/>
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Rs. 0.00"
+            android:textSize="12dp"
+            android:layout_below="@id/bill_num"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/roboto_medium"/>
+        <ListView
+            android:id="@+id/items_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="31dp"
+            android:layout_below="@id/total_price"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Taxes"
+            android:textSize="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_marginStart="14dp"
+            android:layout_below="@id/items_list"
+            android:layout_marginBottom="18dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs. 0.00"
+            android:textSize="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/items_list"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="18dp"/>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/bill_detail_print_back"
+        android:text="Print"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="14dp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/bill_activity_share_back"
+        android:text="Share"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="14dp"
+        android:textColor="#F0517D"
+        android:gravity="center"/>
+
+</LinearLayout>
+</ScrollView>

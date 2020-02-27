@@ -13,37 +13,7 @@
     app:umanoScrollableView="@id/scrollable"
     tools:context=".Home.HomeActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#E74672"
-        android:paddingTop="27dp"
-        android:paddingBottom="19dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E74672"
-            android:fontFamily="@font/ubuntu_medium"
-            android:gravity="center"
-            android:text="Today's activity"
-            android:textColor="#FFFFFF"
-            android:textSize="32dp" />
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginRight="15dp"
-        android:orientation="vertical" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -61,37 +31,36 @@
             android:text="salesforce"
             android:textColor="#FFFFFF"
             android:textSize="40dp" />
-
         <TextView
             android:id="@+id/new_bill_activity"
             android:layout_width="181dp"
             android:layout_height="51dp"
+            android:background="@drawable/home_activity_main_shape"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="208dp"
-            android:background="@drawable/home_activity_main_shape"
-            android:clickable="true"
-            android:elevation="6dp"
-            android:fontFamily="@font/roboto_regular"
-            android:gravity="center"
             android:text="Start a new bill"
             android:textColor="#F0527E"
-            android:textSize="16dp" />
+            android:gravity="center"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:fontFamily="@font/roboto_regular"/>
 
         <TextView
             android:id="@+id/scan_bill"
             android:layout_width="181dp"
             android:layout_height="51dp"
-            android:layout_below="@id/new_bill_activity"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"
             android:background="@drawable/scan_bill_back"
-            android:clickable="true"
-            android:elevation="6dp"
-            android:fontFamily="@font/roboto_regular"
-            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/new_bill_activity"
             android:text="Scan a bill"
+            android:clickable="true"
             android:textColor="#FFFFFF"
-            android:textSize="16dp" />
+            android:layout_marginTop="22dp"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:elevation="6dp"
+            android:fontFamily="@font/roboto_regular"/>
 
         <TextView
             android:id="@+id/user_name"
@@ -125,6 +94,14 @@
         android:layout_height="match_parent"
         android:layout_marginTop="82dp"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/slide_panel_btn"
+            android:layout_marginTop="13.5dp"
+            android:layout_gravity="center"
+            />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -134,10 +111,14 @@
             android:background="@drawable/slide_panel_btn" />
 
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/scrollable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical" />
     </LinearLayout>
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>

@@ -1,4 +1,4 @@
-package in.tinyhouse.salesforce.Inventory;
+package in.tinyhouse.salesforce.inventory;
 
 import android.os.Bundle;
 

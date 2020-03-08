@@ -1,15 +1,12 @@
-package in.tinyhouse.salesforce.Onboarding;
+package in.tinyhouse.salesforce.onboarding;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.text.TextUtils;
-import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +19,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import in.tinyhouse.salesforce.Home.HomeActivity;
 import in.tinyhouse.salesforce.R;
+import in.tinyhouse.salesforce.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText email;
@@ -134,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                     else{
                         //Message to the user if the login fails with reason
                        // Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT);
-                         Snackbar.make((RelativeLayout)findViewById(R.id.root_loginlayout),"Error "+task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.root_loginlayout), "Error " + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
 
                     }
                 }

@@ -19,11 +19,11 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:background="#E74672">
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:gravity="center"-->
-        <!--            android:background="#E74672">-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#E74672">
 
         <LinearLayout
             android:id="@+id/linear_layout_signup"
@@ -110,20 +110,19 @@
                 android:textColor="#E74672" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tapsignup"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_below="@id/linear_layout_signup"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="70dp"
-            android:clickable="true"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="5dp"
-            android:text="@string/signup_textbottom"
-            android:textColor="#FFFFFF"
-            android:textSize="12dp" />
+            <TextView
+                android:id="@+id/tapsignup"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="70dp"
+                android:text="@string/signup_textbottom"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/linear_layout_signup"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:textColor="#FFFFFF"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

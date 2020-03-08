@@ -1,23 +1,18 @@
-package in.tinyhouse.salesforce.Onboarding;
+package in.tinyhouse.salesforce.onboarding;
 
 
-import android.os.Bundle;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
-
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,10 +20,10 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import in.tinyhouse.salesforce.Home.HomeActivity;
-import in.tinyhouse.salesforce.Models.User;
-import in.tinyhouse.salesforce.Profile.UserManager;
 import in.tinyhouse.salesforce.R;
+import in.tinyhouse.salesforce.home.HomeActivity;
+import in.tinyhouse.salesforce.models.User;
+import in.tinyhouse.salesforce.profile.UserManager;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -140,6 +135,7 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onUserCreated() {
                                 //If signup and user creation is successful sending user to home activity
                                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                                finish();
                             }
 
                             @Override
@@ -155,7 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
                         });
 
                     } else {
-                        Snackbar.make((RelativeLayout)findViewById(R.id.root_signuplayout),"Error "+ task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.root_signuplayout), "Error " + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
                     }
                 }
             });

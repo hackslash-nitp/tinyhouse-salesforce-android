@@ -1,4 +1,4 @@
-package in.tinyhouse.salesforce.Models;
+package in.tinyhouse.salesforce.models;
 
 public class Customer {
 

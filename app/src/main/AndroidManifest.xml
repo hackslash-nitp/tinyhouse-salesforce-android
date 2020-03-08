@@ -12,27 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Onboarding.SignUpActivity"></activity>
+        <activity android:name=".onboarding.SignUpActivity"></activity>
         <activity
-            android:name=".Settings.SettingsActivity"
+            android:name=".settings.SettingsActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Profile.ProfileActivity"
+            android:name=".profile.ProfileActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Onboarding.LoginActivity"
+            android:name=".onboarding.LoginActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Inventory.InventoryActivity"
+            android:name=".inventory.InventoryActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Home.HomeActivity"
+            android:name=".home.HomeActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Billing.BillingActivity"
+            android:name=".billing.BillingActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Splash.SplashActivity"
+            android:name=".splash.SplashActivity"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

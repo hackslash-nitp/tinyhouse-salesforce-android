@@ -1,26 +1,24 @@
-package in.tinyhouse.salesforce.Billing;
+package in.tinyhouse.salesforce.profile;
 
-//Class starts from here
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import in.tinyhouse.salesforce.Models.Bill;
+import in.tinyhouse.salesforce.models.User;
 
-public class TransactionManager{
-    //Firebase database refernce variable
-    private DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("transactions");
+public class UserManager {
+    private DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("users");
     private OnCompleteListener listener;
 
-    //Constructor initialising the listener to null
-    public TransactionManager() {
+    public UserManager() {
         this.listener = null;
     }
 
@@ -28,15 +26,17 @@ public class TransactionManager{
         this.listener = onCompleteListener;
     }
 
-    /**Method for  addition of details of a new trasaction
+
+    /**Method for  addition of details of a new user
      * in firebase database
-     * @param bill Bill object
+     * @param user User object
      */
-    public TransactionManager createTransaction(Bill bill){
-        reff.child(bill.getId()).setValue(bill).addOnSuccessListener(new OnSuccessListener<Void>() {
+    public UserManager createUser(User user){
+        user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        reff.child(user.getId()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                listener.onTransactionCreated();
+                listener.onUserCreated();
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
@@ -48,17 +48,17 @@ public class TransactionManager{
         return this;
     }
 
-    /**Event to fetch transaction detils (if any) from the Firebase database
+    /**Event to fetch user detils (if any) from the Firebase database
      *
-     * @param transactionId transactionId of a user
-     * @return bill object containing the details from the firebase
+     * @param userId userId of a user
+     * @return User object containing the details from the firebase
      */
-    public TransactionManager fetchTransaction(String transactionId){
-        reff.child(transactionId).addListenerForSingleValueEvent(new ValueEventListener() {
+    public UserManager fetchUser(String userId){
+        reff.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Bill bill = dataSnapshot.getValue(Bill.class);
-                listener.onTransactionFetched(bill);
+                User user = dataSnapshot.getValue(User.class);
+                listener.onUserFetched(user);
             }
 
             @Override
@@ -71,9 +71,9 @@ public class TransactionManager{
 
 
     public interface OnCompleteListener{
-        void onTransactionCreated();
+        void onUserCreated();
 
-        void onTransactionFetched(Bill bill);
+        void onUserFetched(User user);
 
         void onOperationFailed(String message);
 

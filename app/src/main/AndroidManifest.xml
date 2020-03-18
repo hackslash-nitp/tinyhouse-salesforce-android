@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".onboarding.SignUpActivity"></activity>
+        <activity android:name=".Billing.BillComplete"></activity>
+        <activity android:name=".Onboarding.SignUpActivity" />
+
         <activity
             android:name=".settings.SettingsActivity"
             tools:ignore="InnerclassSeparator" />

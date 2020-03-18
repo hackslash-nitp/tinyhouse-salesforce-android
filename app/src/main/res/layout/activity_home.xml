@@ -10,7 +10,8 @@
     app:umanoFadeColor="@color/zxing_transparent"
     app:umanoPanelHeight="115dp"
     app:umanoScrollableView="@id/scrollable"
-    tools:context=".home.HomeActivity">
+    tools:context=".Home.HomeActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +29,6 @@
             android:text="salesforce"
             android:textColor="#FFFFFF"
             android:textSize="40dp" />
-
         <TextView
             android:id="@+id/new_bill_activity"
             android:layout_width="181dp"

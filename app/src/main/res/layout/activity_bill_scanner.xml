@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Or"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/ubuntu"
+        android:textSize="30dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/salesforce"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/text_background_pink"
+            android:fontFamily="@font/ubuntu"
+            android:hint="Enter Product Code Here"
+            android:inputType="text"
+            android:paddingLeft="18dp"
+            android:paddingTop="12dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="10dp"
+            android:selectAllOnFocus="true"
+            android:textColorHint="#ffffff"
+            android:textSize="16dp" />
+
+         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tick_in_circle"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/upward_arrow"
+        android:layout_gravity="center_horizontal"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total items:"
+                android:textColor="#E74672"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="18dp"
+                android:padding="3dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#E74672"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="18dp"
+                android:id="@+id/Total_items"
+                android:padding="3dp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Amount:"
+                    android:textColor="#E74672"
+                    android:fontFamily="@font/ubuntu"
+                    android:textSize="18dp"
+                    android:padding="3dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs. 230"
+                    android:textColor="#E74672"
+                    android:fontFamily="@font/ubuntu"
+                    android:textSize="18dp"
+                    android:id="@+id/Bill_amount"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/blue_pencil" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:textColor="#03A9F4"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="18dp"
+                android:padding="3dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="3dp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/right_pink_arrow" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finish"
+                android:textColor="#E74672"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="18dp"
+                android:padding="3dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="3dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

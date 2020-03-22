@@ -8,4 +8,6 @@
     <string name="signup_password">Password</string>
     <string name="signup_button">CREATE ACCOUNT</string>
     <string name="signup_textbottom">TAP HERE TO SIGN IN</string>
+    <string name="edit_bill">Edit Bill</string>
+    <string name="n_items">N items</string>
 </resources>

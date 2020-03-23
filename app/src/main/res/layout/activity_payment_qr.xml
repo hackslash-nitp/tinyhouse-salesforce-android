@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="43dp"
+            android:layout_margin="13dp"
+            android:maxWidth="25dp"
+            android:maxHeight="25dp"
+            android:src="@drawable/arrow_pink" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="e-Payment QR"
+        android:textColor="#F65984"
+        android:textSize="25dp"
+        android:layout_margin="12dp"
+        />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="322dp"
+        android:layout_height="316dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/qr_code" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Scan the above QR with any UPI app"
+        android:textColor="#8D8C8C"
+        android:textSize="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="to complete your payment"
+        android:textColor="#8D8C8C"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+</LinearLayout>

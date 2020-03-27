@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Billing.BillComplete"></activity>
-        <activity android:name=".Onboarding.SignUpActivity" />
-
+        <activity android:name=".onboarding.SignUpActivity" />
+        <activity android:name=".Billing.BillScannerEdit"/>
         <activity
             android:name=".settings.SettingsActivity"
             tools:ignore="InnerclassSeparator" />
@@ -31,7 +31,7 @@
             android:name=".home.HomeActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".billing.BillingActivity"
+            android:name=".Billing.BillingActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".splash.SplashActivity"

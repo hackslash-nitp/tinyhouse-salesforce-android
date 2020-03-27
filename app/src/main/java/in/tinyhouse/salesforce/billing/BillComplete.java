@@ -1,4 +1,4 @@
-package in.tinyhouse.salesforce.billing;
+package in.tinyhouse.salesforce.Billing;
 
 import androidx.appcompat.app.AppCompatActivity;
 

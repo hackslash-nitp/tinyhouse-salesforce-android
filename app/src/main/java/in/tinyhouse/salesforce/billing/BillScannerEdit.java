@@ -5,21 +5,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import java.util.ArrayList;
-
+import java.util.HashSet;
+import java.util.Set;
 import in.tinyhouse.salesforce.R;
 
 public class BillScannerEdit extends AppCompatActivity implements BillEditRecyclerAdapter.ListItemClick {
     private ArrayList<String> arrayList = new ArrayList<String>();
+    private Set<String> idSet = new HashSet<String>();
     private RecyclerView mBillEditRecycler;
     private TextView itemsQuantityTv;
     private SharedPreferences sharedPreferences;
@@ -37,13 +34,9 @@ public class BillScannerEdit extends AppCompatActivity implements BillEditRecycl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_scanner_edit);
         sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        try {
-            JSONArray jsonArray = new JSONArray(sharedPreferences.getString("ids", "[]"));
-            for (int i = 0; i < jsonArray.length(); i++) {
-                arrayList.add(jsonArray.getString(i));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        idSet = sharedPreferences.getStringSet("ids", null);
+        if (idSet != null) {
+            arrayList.addAll(idSet);
         }
         setup();
         itemsQuantityTv.setText(arrayList.size() + " items");
@@ -77,10 +70,11 @@ public class BillScannerEdit extends AppCompatActivity implements BillEditRecycl
 
     private void dataSave() {
         Double price = adapter.getPrice();
-        JSONArray jsonArray = new JSONArray(arrayList);
+        Set<String> finalIds = new HashSet<String>();
+        finalIds.addAll(arrayList);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("totalPrice", String.valueOf(price));
-        editor.putString("ids", jsonArray.toString());
+        editor.putStringSet("finalIds", finalIds);
         editor.apply();
     }
 }

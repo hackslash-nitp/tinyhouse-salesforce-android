@@ -1,4 +1,4 @@
-package in.tinyhouse.salesforce.Billing;
+package in.tinyhouse.salesforce.billing;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import in.tinyhouse.salesforce.R;
-import in.tinyhouse.salesforce.Billing.BillingActivity;
+import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
 
 public class HomeActivity extends AppCompatActivity {

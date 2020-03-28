@@ -1,4 +1,4 @@
-package in.tinyhouse.salesforce.Billing;
+package in.tinyhouse.salesforce.billing;
 
 //Class starts from here
 

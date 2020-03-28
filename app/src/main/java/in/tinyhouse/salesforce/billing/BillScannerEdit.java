@@ -16,7 +16,6 @@ import in.tinyhouse.salesforce.R;
 
 public class BillScannerEdit extends AppCompatActivity implements BillEditRecyclerAdapter.ListItemClick {
     private ArrayList<String> arrayList = new ArrayList<String>();
-    private Set<String> idSet = new HashSet<String>();
     private RecyclerView mBillEditRecycler;
     private TextView itemsQuantityTv;
     private SharedPreferences sharedPreferences;
@@ -33,6 +32,7 @@ public class BillScannerEdit extends AppCompatActivity implements BillEditRecycl
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_scanner_edit);
+        Set<String> idSet = new HashSet<String>();
         sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         idSet = sharedPreferences.getStringSet("ids", null);
         if (idSet != null) {

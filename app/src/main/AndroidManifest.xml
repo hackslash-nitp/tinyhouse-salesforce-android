@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="in.tinyhouse.salesforce">
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Billing.BillComplete"></activity>
-        <activity android:name=".Onboarding.SignUpActivity" />
-
+        <activity android:name=".ScannerActivity"></activity>
+        <activity android:name=".billing.BillComplete" />
+        <activity android:name=".onboarding.SignUpActivity" />
         <activity
             android:name=".settings.SettingsActivity"
             tools:ignore="InnerclassSeparator" />

@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--Bar code Scanner window-->
     <com.journeyapps.barcodescanner.BarcodeView
-        android:id="@+id/barcode_scanner"
+        android:id="@+id/zxing_barcode_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--Full Camera Window with viewfinder-->
+    <com.journeyapps.barcodescanner.ViewfinderView
+        android:id="@+id/zxing_viewfinder_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true" />
-
-    <ImageView
-        android:id="@+id/bar_code_frame"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bar_code_frame"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.7" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:zxing_possible_result_points="@color/colorPrimary"
+        app:zxing_viewfinder_laser="#FFFFFF"/>
+    <View
+        android:layout_gravity="center"
+        android:layout_height="225dp"
+        android:layout_width="225dp"
+        android:background="@drawable/qr_scanner_view"/>
+    <View
+        android:layout_width="245dp"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        android:layout_gravity="center"/>
+</merge>

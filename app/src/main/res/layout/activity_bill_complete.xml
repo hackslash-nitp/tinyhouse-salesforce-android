@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Billing.BillComplete">
+    tools:context=".billing.BillComplete">
     <TextView
         android:id="@+id/save_img"
         android:layout_width="75dp"

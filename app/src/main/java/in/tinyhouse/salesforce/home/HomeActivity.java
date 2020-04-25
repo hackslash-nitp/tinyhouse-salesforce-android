@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.text.DateFormat;
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import in.tinyhouse.salesforce.R;
+import in.tinyhouse.salesforce.ScannerActivity;
 import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
 
@@ -78,6 +82,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //code for scanning new bill
+                new IntentIntegrator(HomeActivity.this).setCaptureActivity(ScannerActivity.class).initiateScan();
             }
         });
         //assigning id to UserName TextView
@@ -127,5 +132,26 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Bill> fetchTransactionList() {
         //code for fetching the transaction list
         return new ArrayList<>();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //We will get scan results here
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        //check for null
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Scan Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                final String id = result.getContents();
+                //Pass the bill id to billing Activity
+                Intent intent = new Intent(getApplicationContext(), BillingActivity.class);
+                intent.putExtra("bill_id", id);
+                startActivity(intent);
+            }
+        } else {
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

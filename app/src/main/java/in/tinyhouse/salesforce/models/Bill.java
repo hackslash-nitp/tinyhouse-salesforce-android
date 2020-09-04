@@ -15,6 +15,7 @@ public class Bill {
     private String paidAmount;
     private String returnedAmount;
     private String timeStamp;
+    private String storeName;
 
     public Bill() {
     }
@@ -116,5 +117,14 @@ public class Bill {
 
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    //Getter and Setter functions for storeName
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 }

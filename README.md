@@ -1,3 +1,3 @@
 # tinyhouse-salesforce-android
-
+Saleforce is a sales terminal application that will enhance the efficieny of people handling the point of sales in a seller type organization. The app keeps a track of all the transactions that each handler has done in a day, and keeps backing up data to the tinyhouse database.
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/695861c183454377982759a726c76a02)](https://www.codacy.com/manual/kharsh39/barview-android?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=krharsh17/barview-android&amp;utm_campaign=Badge_Grade)    [![Appveyor Badge](https://ci.appveyor.com/api/projects/status/github/hackslash-nitp/tinyhouse-salesforce-android)](https://ci.appveyor.com/project/krharsh17/tinyhouse-salesforce-android)

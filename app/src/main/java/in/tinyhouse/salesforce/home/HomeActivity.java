@@ -17,6 +17,7 @@ import com.google.zxing.integration.android.IntentResult;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,28 +31,24 @@ public class HomeActivity extends AppCompatActivity {
     private TextView mSalesforce;
 
     private static String getDate() {
-        String currentDate = DateFormat.getDateInstance().format(new Date());
-        String numDate = DateFormat.getDateInstance().format(new Date());
-        int numIntDate = Integer.parseInt(numDate);
-        if (numIntDate >= 11 && numIntDate <= 13)
-            currentDate = currentDate + "th";
-        else {
-            switch (numIntDate % 10) {
-                case 1:
-                    currentDate = currentDate + "st";
-                    break;
-                case 2:
-                    currentDate = currentDate + "nd";
-                    break;
-                case 3:
-                    currentDate = currentDate + "rd";
-                    break;
-                default:
-                    currentDate = currentDate + "th";
-                    break;
-            }
+        String currentMonth = new SimpleDateFormat("MMMM").format(new Date());
+        String currentDate = new SimpleDateFormat("dd").format(new Date());
+        int dateInt = Integer.parseInt(currentDate);
+        switch (dateInt % 10) {
+            case (1):
+                currentDate += "st";
+                break;
+            case (2):
+                currentDate += "nd";
+                break;
+            case (3):
+                currentDate += "rd";
+                break;
+            default:
+                currentDate += "th";
+                break;
         }
-        return currentDate;
+        return currentMonth + " " + currentDate;
     }
 
     private static String getTime() {
@@ -87,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         //assigning id to UserName TextView
         //private variable for userName TextView
-        TextView mUserName = findViewById(R.id.user_name);
+        final TextView mUserName = findViewById(R.id.user_name);
         //assigning id to initiate transaction button
         //private variable for new Bill Activity
         //assigning id to dateTime TextView

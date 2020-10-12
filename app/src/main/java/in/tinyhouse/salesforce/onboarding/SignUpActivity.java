@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import in.tinyhouse.salesforce.R;
 import in.tinyhouse.salesforce.home.HomeActivity;
@@ -133,9 +135,17 @@ public class SignUpActivity extends AppCompatActivity {
 
                             @Override
                             public void onUserCreated() {
-                                //If signup and user creation is successful sending user to home activity
-                                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                                finish();
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                UserProfileChangeRequest profie = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(userName).build();
+                                user.updateProfile(profie).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        //If signup and user creation is successful sending user to home activity
+                                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                                        finish();
+                                    }
+                                });
                             }
 
                             @Override

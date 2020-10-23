@@ -23,6 +23,7 @@ import java.util.Date;
 
 import in.tinyhouse.salesforce.R;
 import in.tinyhouse.salesforce.ScannerActivity;
+import in.tinyhouse.salesforce.billing.BillScanner;
 import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
 
@@ -31,7 +32,29 @@ public class HomeActivity extends AppCompatActivity {
     private TextView mSalesforce;
 
     private static String getDate() {
-     
+
+        String currentMonth= new SimpleDateFormat("MMMM").format(new Date());
+        String currentDate= new SimpleDateFormat("dd").format(new Date());
+        int dateInt = Integer.parseInt(currentDate);
+        switch (dateInt%10)
+        {
+            case(1):
+                currentDate+="st";
+                break;
+            case(2):
+                currentDate+="nd";
+                break;
+            case(3):
+                currentDate+="rd";
+                break;
+            default:
+                currentDate+="th";
+                break;
+        }
+        
+        return currentMonth+" "+currentDate;
+
+
     }
 
     private static String getTime() {
@@ -51,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
         mStartNewBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), BillingActivity.class));
+                startActivity(new Intent(getApplicationContext(), BillScanner.class));
             }
         });
         //assigning id to scan a bill textview

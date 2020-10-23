@@ -31,28 +31,27 @@ public class HomeActivity extends AppCompatActivity {
     private TextView mSalesforce;
 
     private static String getDate() {
-        String currentDate = DateFormat.getDateInstance().format(new Date());
-        String numDate = DateFormat.getDateInstance().format(new Date());
-        int numIntDate = Integer.parseInt(numDate);
-        if (numIntDate >= 11 && numIntDate <= 13)
-            currentDate = currentDate + "th";
-        else {
-            switch (numIntDate % 10) {
-                case 1:
-                    currentDate = currentDate + "st";
-                    break;
-                case 2:
-                    currentDate = currentDate + "nd";
-                    break;
-                case 3:
-                    currentDate = currentDate + "rd";
-                    break;
-                default:
-                    currentDate = currentDate + "th";
-                    break;
-            }
+        String currentMonth= new SimpleDateFormat("MMMM").format(new Date());
+        String currentDate= new SimpleDateFormat("dd").format(new Date());
+        int dateInt = Integer.parseInt(currentDate);
+        switch (dateInt%10)
+        {
+            case(1):
+                currentDate+="st";
+                break;
+            case(2):
+                currentDate+="nd";
+                break;
+            case(3):
+                currentDate+="rd";
+                break;
+            default:
+                currentDate+="th";
+                break;
         }
-        return currentDate;
+        
+        return currentMonth+" "+currentDate;
+
     }
 
     private static String getTime() {

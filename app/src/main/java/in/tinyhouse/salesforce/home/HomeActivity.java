@@ -22,6 +22,7 @@ import java.util.Date;
 
 import in.tinyhouse.salesforce.R;
 import in.tinyhouse.salesforce.ScannerActivity;
+import in.tinyhouse.salesforce.billing.BillScanner;
 import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
 
@@ -71,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         mStartNewBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), BillingActivity.class));
+                startActivity(new Intent(getApplicationContext(), BillScanner.class));
             }
         });
         //assigning id to scan a bill textview

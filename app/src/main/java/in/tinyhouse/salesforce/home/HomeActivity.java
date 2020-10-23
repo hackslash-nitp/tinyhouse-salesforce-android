@@ -17,6 +17,7 @@ import com.google.zxing.integration.android.IntentResult;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView mSalesforce;
 
     private static String getDate() {
+
         String currentMonth= new SimpleDateFormat("MMMM").format(new Date());
         String currentDate= new SimpleDateFormat("dd").format(new Date());
         int dateInt = Integer.parseInt(currentDate);
@@ -51,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         
         return currentMonth+" "+currentDate;
+
 
     }
 
@@ -87,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         //assigning id to UserName TextView
         //private variable for userName TextView
-        TextView mUserName = findViewById(R.id.user_name);
+        final TextView mUserName = findViewById(R.id.user_name);
         //assigning id to initiate transaction button
         //private variable for new Bill Activity
         //assigning id to dateTime TextView

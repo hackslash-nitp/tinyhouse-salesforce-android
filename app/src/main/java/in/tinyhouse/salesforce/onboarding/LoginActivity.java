@@ -9,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 import in.tinyhouse.salesforce.R;
 import in.tinyhouse.salesforce.home.HomeActivity;
 
@@ -43,19 +46,20 @@ public class LoginActivity extends AppCompatActivity {
         tap_sign.setBackgroundResource(backgroundResource);
 
         email = findViewById(R.id.email);
-       assignVariables();
+        assignVariables();
         setup();
 
 
     }
-    public void setup(){
+
+    public void setup() {
         //Onclick listener for login button
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //String variables for user email and password
-                 String userEmail;
-                 String userPassword;
+                String userEmail;
+                String userPassword;
                 //As the login but is clicked assigning the entered email
                 //and  password to String from the EditText field and starting
                 //the login method
@@ -75,8 +79,9 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
     //Method to assign all the varibles with their respective Ids
-    public void assignVariables(){
+    public void assignVariables() {
         mEmail = findViewById(R.id.email);             //Initialize it adding its id that is in the xml layout file
         mPassword = findViewById(R.id.password);         //Initialize it adding its id that is in the xml layout file
         btnLogin = findViewById(R.id.button1);            //Initialize it adding its id that is in the xml layout file
@@ -84,50 +89,50 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    /**Method to check whether the user has entered email and password or not
+    /**
+     * Method to check whether the user has entered email and password or not
      *
-     * @param email User email
+     * @param email    User email
      * @param password User password
      * @return returns true if user has filled both the fields else returns false
      */
-    public boolean checkEntries(String email, String password){
+    public boolean checkEntries(String email, String password) {
 
-        if("".equals(email)) {
+        if ("".equals(email)) {
             Toast.makeText(LoginActivity.this, "NAME cannot be empty", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if("".equals(password)){
-            Toast.makeText(LoginActivity.this,"PASSWORD cannot be empty",Toast.LENGTH_SHORT).show();
+        } else if ("".equals(password)) {
+            Toast.makeText(LoginActivity.this, "PASSWORD cannot be empty", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else
+        } else
             return true;
     }
 
-    /**Method to start the login process by verifying the details from the firebase
+    /**
+     * Method to start the login process by verifying the details from the firebase
      * Takes the user to the home activity if the login is successful
      * else gives the reason for failure
-     * @param email user email
+     *
+     * @param email    user email
      * @param password user password
      */
 
-    public void loginUser(String email, String password){
+    public void loginUser(String email, String password) {
         //Checking the status of the entries by the user
         boolean status = validateE();
         //only if the status is true then starting the login process
-        if(status){
+        if (status) {
             fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(LoginActivity.this,"User Logged In Successfully",Toast.LENGTH_SHORT);
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "User Logged In Successfully", Toast.LENGTH_SHORT);
                         //Creating intent to send user from Login Activity to Home Activity for successful login
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        
-                    }
-                    else{
+                        finish();
+                    } else {
                         //Message to the user if the login fails with reason
-                       // Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT);
+                        // Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT);
                         Snackbar.make(findViewById(R.id.root_loginlayout), "Error " + task.getException().getMessage(), Snackbar.LENGTH_SHORT).show();
 
                     }
@@ -136,7 +141,8 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-// function  to check status of inputted email
+
+    // function  to check status of inputted email
     private boolean validateE() {
         String emailInput = email.getText().toString().trim();
 

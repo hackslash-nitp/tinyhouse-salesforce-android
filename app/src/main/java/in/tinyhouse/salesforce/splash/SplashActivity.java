@@ -6,7 +6,11 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import in.tinyhouse.salesforce.R;
+import in.tinyhouse.salesforce.home.HomeActivity;
 import in.tinyhouse.salesforce.onboarding.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,7 +23,13 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                FirebaseUser user = auth.getCurrentUser();
+                if (user != null){
+                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                }else{
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                }
                 finish();
             }
         }, 5000);

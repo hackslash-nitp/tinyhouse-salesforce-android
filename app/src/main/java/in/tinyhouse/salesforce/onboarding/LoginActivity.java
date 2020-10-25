@@ -135,6 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                 v = new View(getApplicationContext());
             }
             im.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            //showing the progress bar
             progressBar.setVisibility(View.VISIBLE);
             fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override

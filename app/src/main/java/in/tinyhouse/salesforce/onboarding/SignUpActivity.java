@@ -1,13 +1,16 @@
 package in.tinyhouse.salesforce.onboarding;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
     //Signup textView to sign in the user if user already exists
     private TextView btnLogin;
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.user_password);
         btnLogin = findViewById(R.id.tapsignup);
         btnSignUp = findViewById(R.id.btnsignup);
+        progressBar = findViewById(R.id.progress_bar);
     }
 
 
@@ -116,9 +121,19 @@ public class SignUpActivity extends AppCompatActivity {
         boolean status = validateEmail() && checkEntries(name, phone, email, password);
         //Starting the signup activity if and only if user has entered all the credentials
         if (status) {
+            //minimizing keyboard
+            InputMethodManager im = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View v = getCurrentFocus();
+            //If no view currently has focus, create a new one, just so we can grab a window token from it
+            if (v == null) {
+                v = new View(getApplicationContext());
+            }
+            im.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            progressBar.setVisibility(View.VISIBLE);
             fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressBar.setVisibility(View.INVISIBLE);
                     if (task.isSuccessful()) {
                         Toast.makeText(SignUpActivity.this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
                         //Creating a new user object

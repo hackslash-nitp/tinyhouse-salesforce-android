@@ -110,6 +110,15 @@
                 android:textColor="#E74672" />
         </LinearLayout>
 
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tapsignup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-60dp"
+                android:visibility="invisible" />
+
             <TextView
                 android:id="@+id/tapsignup"
                 android:layout_width="wrap_content"

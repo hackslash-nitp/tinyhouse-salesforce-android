@@ -1,12 +1,15 @@
 package in.tinyhouse.salesforce.onboarding;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     //Signup textView to create a new user account
     private TextView btnSignUp;
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    private ProgressBar progressBar;
 
 
     @Override
@@ -86,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.password);         //Initialize it adding its id that is in the xml layout file
         btnLogin = findViewById(R.id.button1);            //Initialize it adding its id that is in the xml layout file
         btnSignUp = findViewById(R.id.tap_sign);         //Initialize it adding its id that is in the xml layout file
+        progressBar = findViewById(R.id.progress_bar);
     }
 
 
@@ -122,9 +127,20 @@ public class LoginActivity extends AppCompatActivity {
         boolean status = validateE();
         //only if the status is true then starting the login process
         if (status) {
+            //minimizing keyboard
+            InputMethodManager im = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View v = getCurrentFocus();
+            //If no view currently has focus, create a new one, just so we can grab a window token from it
+            if (v == null) {
+                v = new View(getApplicationContext());
+            }
+            im.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            //showing the progress bar
+            progressBar.setVisibility(View.VISIBLE);
             fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressBar.setVisibility(View.INVISIBLE);
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "User Logged In Successfully", Toast.LENGTH_SHORT);
                         //Creating intent to send user from Login Activity to Home Activity for successful login

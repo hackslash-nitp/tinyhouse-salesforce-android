@@ -19,7 +19,6 @@ public class ScannerActivity extends AppCompatActivity  {
    // private Button mBackArrow;
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
-    private View mover;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,7 @@ public class ScannerActivity extends AppCompatActivity  {
 
         //Initialize barcode scanner view
         barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
-        mover = findViewById(R.id.mover);
+        View mover = findViewById(R.id.mover);
         TranslateAnimation animation = new TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.RELATIVE_TO_PARENT, -0.13f, TranslateAnimation.RELATIVE_TO_PARENT, 0.13f);
         animation.setDuration(1000);
         animation.setRepeatCount(-1);

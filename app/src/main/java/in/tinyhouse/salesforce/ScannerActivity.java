@@ -1,13 +1,19 @@
 package in.tinyhouse.salesforce;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-//import android.view.View;
-//import android.widget.Button;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
+
+//import android.view.View;
+//import android.widget.Button;
 
 public class ScannerActivity extends AppCompatActivity  {
    // private Button mBackArrow;
@@ -19,17 +25,23 @@ public class ScannerActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
         //initialize the back arrow but as there is no back arrow in the layout so I am commenting all the lines as the checks would fail
-      /** mBackArrow = findViewById(R.id.back_arrow);
-        mBackArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               onBackPressed();
-            }
+        /** mBackArrow = findViewById(R.id.back_arrow);
+         mBackArrow.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+        onBackPressed();
+        }
         });
-        **/
+         **/
 
         //Initialize barcode scanner view
         barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
+        View mover = findViewById(R.id.mover);
+        TranslateAnimation animation = new TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.RELATIVE_TO_PARENT, -0.13f, TranslateAnimation.RELATIVE_TO_PARENT, 0.13f);
+        animation.setDuration(1000);
+        animation.setRepeatCount(-1);
+        animation.setRepeatMode(Animation.REVERSE);
+        animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        mover.setAnimation(animation);
         //start capture
         capture = new CaptureManager(this, barcodeScannerView);
         capture.initializeFromIntent(getIntent(), savedInstanceState);

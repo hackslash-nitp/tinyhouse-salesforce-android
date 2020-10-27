@@ -23,6 +23,7 @@
         android:layout_width="225dp"
         android:background="@drawable/qr_scanner_view"/>
     <View
+        android:id="@+id/mover"
         android:layout_width="245dp"
         android:layout_height="2dp"
         android:background="#FFFFFF"

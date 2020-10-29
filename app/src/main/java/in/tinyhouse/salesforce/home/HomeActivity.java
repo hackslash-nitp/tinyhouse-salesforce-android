@@ -26,6 +26,7 @@ import in.tinyhouse.salesforce.ScannerActivity;
 import in.tinyhouse.salesforce.billing.BillScanner;
 import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
+import in.tinyhouse.salesforce.onboarding.LoginActivity;
 
 public class HomeActivity extends AppCompatActivity {
     //private variable for "salesforce" TextView
@@ -67,6 +68,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         //assigning id to salesforce TextView
         mSalesforce = findViewById(R.id.salesforce);
+        TextView tempLogout = findViewById(R.id.temp_logout);
+        tempLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         //assigning id to start a new bill textview
         //private variable to start a new bill
         TextView mStartNewBill = findViewById(R.id.new_bill_activity);

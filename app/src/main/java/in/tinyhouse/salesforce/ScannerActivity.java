@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
+//import android.view.View;
+//import android.widget.Button;
+
 public class ScannerActivity extends AppCompatActivity  {
    // private Button mBackArrow;
     private CaptureManager capture;
@@ -31,6 +34,13 @@ public class ScannerActivity extends AppCompatActivity  {
 
         //Initialize barcode scanner view
         barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
+        View mover = findViewById(R.id.mover);
+        TranslateAnimation animation = new TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.RELATIVE_TO_PARENT, -0.13f, TranslateAnimation.RELATIVE_TO_PARENT, 0.13f);
+        animation.setDuration(1000);
+        animation.setRepeatCount(-1);
+        animation.setRepeatMode(Animation.REVERSE);
+        animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        mover.setAnimation(animation);
         //start capture
         capture = new CaptureManager(this, barcodeScannerView);
         capture.initializeFromIntent(getIntent(), savedInstanceState);

@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -23,13 +21,16 @@ import java.util.Date;
 
 import in.tinyhouse.salesforce.R;
 import in.tinyhouse.salesforce.ScannerActivity;
+import in.tinyhouse.salesforce.billing.BillScanner;
 import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
+import in.tinyhouse.salesforce.onboarding.LoginActivity;
 
 public class HomeActivity extends AppCompatActivity {
     //private variable for "salesforce" TextView
     private TextView mSalesforce;
     private static String getDate() {
+
         String currentMonth= new SimpleDateFormat("MMMM").format(new Date());
         String currentDate= new SimpleDateFormat("dd").format(new Date());
         int dateInt = Integer.parseInt(currentDate);
@@ -51,7 +52,6 @@ public class HomeActivity extends AppCompatActivity {
         return currentMonth+" "+currentDate;
     }
 
-
     private static String getTime() {
         return DateFormat.getTimeInstance().format(new Date());
     }
@@ -62,6 +62,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         //assigning id to salesforce TextView
         mSalesforce = findViewById(R.id.salesforce);
+        TextView tempLogout = findViewById(R.id.temp_logout);
+        tempLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         //assigning id to start a new bill textview
         //private variable to start a new bill
         TextView mStartNewBill = findViewById(R.id.new_bill_activity);
@@ -69,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
         mStartNewBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), BillingActivity.class));
+                startActivity(new Intent(getApplicationContext(), BillScanner.class));
             }
         });
         //assigning id to scan a bill textview
@@ -85,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         //assigning id to UserName TextView
         //private variable for userName TextView
-        TextView mUserName = findViewById(R.id.user_name);
+        final TextView mUserName = findViewById(R.id.user_name);
         //assigning id to initiate transaction button
         //private variable for new Bill Activity
         //assigning id to dateTime TextView

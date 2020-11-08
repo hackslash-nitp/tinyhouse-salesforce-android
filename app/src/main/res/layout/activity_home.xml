@@ -10,7 +10,7 @@
     app:umanoFadeColor="@color/zxing_transparent"
     app:umanoPanelHeight="115dp"
     app:umanoScrollableView="@id/scrollable"
-    tools:context=".Home.HomeActivity">
+    tools:context=".home.HomeActivity">
 
 
     <RelativeLayout

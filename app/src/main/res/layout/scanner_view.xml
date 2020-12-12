@@ -16,16 +16,197 @@
         android:layout_gravity="center"
         android:visibility="invisible"
         app:zxing_possible_result_points="@color/colorPrimary"
-        app:zxing_viewfinder_laser="#FFFFFF"/>
-    <View
-        android:layout_gravity="center"
-        android:layout_height="225dp"
-        android:layout_width="225dp"
-        android:background="@drawable/qr_scanner_view"/>
-    <View
-        android:id="@+id/mover"
-        android:layout_width="245dp"
-        android:layout_height="2dp"
-        android:background="#FFFFFF"
-        android:layout_gravity="center"/>
+        app:zxing_viewfinder_laser="#FFFFFF" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/scanner_rectangle"
+            android:layout_width="225dp"
+            android:layout_height="225dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/qr_scanner_view" />
+
+        <View
+            android:layout_width="245dp"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scanner_rectangle"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/ubuntu"
+            android:text="Or"
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:id="@+id/enter_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bill_summary"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/salesforce"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/text_background_pink"
+                android:fontFamily="@font/ubuntu"
+                android:hint="Enter Product Code Here"
+                android:inputType="text"
+                android:paddingLeft="18dp"
+                android:paddingTop="12dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="10dp"
+                android:selectAllOnFocus="true"
+                android:textColorHint="#ffffff"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/tick_in_circle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bill_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/cardview_light_background"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ubuntu"
+                        android:padding="3dp"
+                        android:text="Total items:"
+                        android:textColor="#E74672"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/Total_items"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ubuntu"
+                        android:padding="3dp"
+                        android:text="2"
+                        android:textColor="#E74672"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ubuntu"
+                        android:padding="3dp"
+                        android:text="Bill Amount:"
+                        android:textColor="#E74672"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/Bill_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ubuntu"
+                        android:padding="3dp"
+                        android:text="Rs. 230"
+                        android:textColor="#E74672"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+
+                    android:id="@+id/edit_bill_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:src="@drawable/blue_pencil" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="3dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:padding="3dp"
+                        android:text="Edit"
+                        android:textColor="#03A9F4"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/right_pink_arrow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="3dp"
+                        android:fontFamily="@font/ubuntu"
+                        android:padding="3dp"
+                        android:text="Finish"
+                        android:textColor="#E74672"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </merge>

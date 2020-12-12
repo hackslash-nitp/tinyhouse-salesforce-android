@@ -1,11 +1,10 @@
 package in.tinyhouse.salesforce;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,6 +45,15 @@ public class ScannerActivity extends AppCompatActivity  {
         capture = new CaptureManager(this, barcodeScannerView);
         capture.initializeFromIntent(getIntent(), savedInstanceState);
         capture.decode();
+        //To open 'edit_bill_summary' when 'edit' is pressed
+        LinearLayout edit = findViewById(R.id.edit_bill_summary);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent t = new Intent(ScannerActivity.this, EditScannerBill.class);
+                startActivity(t);
+            }
+        });
     }
     @Override
     protected void onResume() {

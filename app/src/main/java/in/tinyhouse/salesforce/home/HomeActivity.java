@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -31,7 +29,6 @@ import in.tinyhouse.salesforce.onboarding.LoginActivity;
 public class HomeActivity extends AppCompatActivity {
     //private variable for "salesforce" TextView
     private TextView mSalesforce;
-
     private static String getDate() {
 
         String currentMonth= new SimpleDateFormat("MMMM").format(new Date());
@@ -51,11 +48,8 @@ public class HomeActivity extends AppCompatActivity {
             default:
                 currentDate+="th";
                 break;
-        }
-        
+        } 
         return currentMonth+" "+currentDate;
-
-
     }
 
     private static String getTime() {

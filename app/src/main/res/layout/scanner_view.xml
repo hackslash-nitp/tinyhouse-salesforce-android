@@ -30,6 +30,7 @@
             android:background="@drawable/qr_scanner_view" />
 
         <View
+            android:id="@+id/mover"
             android:layout_width="245dp"
             android:layout_height="2dp"
             android:layout_centerInParent="true"

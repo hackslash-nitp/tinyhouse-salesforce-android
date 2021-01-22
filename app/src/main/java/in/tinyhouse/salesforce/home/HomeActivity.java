@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -21,7 +23,6 @@ import java.util.Date;
 
 import in.tinyhouse.salesforce.R;
 import in.tinyhouse.salesforce.ScannerActivity;
-import in.tinyhouse.salesforce.billing.BillScanner;
 import in.tinyhouse.salesforce.billing.BillingActivity;
 import in.tinyhouse.salesforce.models.Bill;
 import in.tinyhouse.salesforce.onboarding.LoginActivity;
@@ -79,7 +80,8 @@ public class HomeActivity extends AppCompatActivity {
         mStartNewBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), BillScanner.class));
+                Toast.makeText(HomeActivity.this, "Implementing soon", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(getApplicationContext(), BillScanner.class));
             }
         });
         //assigning id to scan a bill textview
